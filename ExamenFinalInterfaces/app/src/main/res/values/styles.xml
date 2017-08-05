@@ -1,0 +1,46 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FacebookTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimaryFacebook</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkFacebook</item>
+        <item name="colorAccent">@color/colorAccentFacebook</item>
+    </style>
+
+    <style name="InstagramTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimaryInstagram</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkInstagram</item>
+        <item name="colorAccent">@color/colorAccentInstagram</item>
+    </style>
+
+    <style name="GooglePlusTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGooglePlus</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGooglePlus</item>
+        <item name="colorAccent">@color/colorAccentGooglePlus</item>
+    </style>
+
+    <style name="TwiterTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryTwiter</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTwiter</item>
+        <item name="colorAccent">@color/colorAccentTwiter</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MyNavigationDrawer" parent="AppTheme">
+        <item name="colorPrimary">@color/colorAccent</item>
+    </style>
+
+</resources>

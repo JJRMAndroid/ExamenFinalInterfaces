@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NavigationDrawer</string>
+    <string name="title">Bienvenido a la lección donde aprenderemos a realizar un Navigation Drawer.</string>
+    <string name="navigation_drawer">Navigation Drawer</string>
+
+    <string name="nav_drawer_open">Abrir cajón</string>
+    <string name="nav_drawer_close">Cerrar cajón</string>
+    <string name="seccion1">Inicio</string>
+    <string name="seccion2">Facebook</string>
+    <string name="seccion3">Instagram</string>
+    <string name="seccion4">Google Plus</string>
+    <string name="seccion5">Twiter</string>
+    <string name="redes_sociales">Mis Redes Sociales</string>
+</resources>

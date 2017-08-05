@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7c4dff</color>
+    <color name="colorPrimaryDark">#673ab7</color>
+    <color name="colorAccent">#ea80fc</color>
+
+    <color name="colorPrimaryTwiter">#2196f3</color>
+    <color name="colorPrimaryDarkTwiter">#2962ff</color>
+    <color name="colorAccentTwiter">#ea80fc</color>
+
+    <color name="colorPrimaryFacebook">#536dfe</color>
+    <color name="colorPrimaryDarkFacebook">#3f51b5</color>
+    <color name="colorAccentFacebook">#ea80fc</color>
+
+    <color name="colorPrimaryInstagram">#536dfe</color>
+    <color name="colorPrimaryDarkInstagram">#304ffe</color>
+    <color name="colorAccentInstagram">#ea80fc</color>
+
+    <color name="colorPrimaryGooglePlus">#ef5350</color>
+    <color name="colorPrimaryDarkGooglePlus">#f44336</color>
+    <color name="colorAccentGooglePlus">#ea80fc</color>
+</resources>
