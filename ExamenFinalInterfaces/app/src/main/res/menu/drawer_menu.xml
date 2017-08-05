@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_without_tabs"
+            android:checked="true"
+            android:icon="@drawable/ic_label_outline"
+            android:title="@string/without_tabs" />
+
+        <item
+            android:id="@+id/nav_with_tabs"
+            android:icon="@drawable/ic_label"
+            android:title="@string/with_tabs" />
+    </group>
+</menu>
