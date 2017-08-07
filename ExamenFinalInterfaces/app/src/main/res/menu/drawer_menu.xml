@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/primer_grupo"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home2"
+            android:title="@string/seccion1" />
+
+        <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/facebook2"
+            android:title="@string/seccion2" />
+
+        <item
+            android:id="@+id/nav_instagram"
+            android:icon="@drawable/instagra2"
+            android:title="@string/seccion3" />
+
+        <item
+            android:id="@+id/nav_google_plus"
+            android:icon="@drawable/google_plus2"
+            android:title="@string/seccion4" />
+
+        <item
+            android:id="@+id/nav_twiter"
+            android:icon="@drawable/twitter2"
+            android:title="@string/seccion5" />
+    </group>
+</menu>
