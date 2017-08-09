@@ -38,6 +38,6 @@ public class AppBarWithTabsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         MainActivity activity = (MainActivity) getActivity();
-        activity.updateView(getString(R.string.without_tabs));
-    }
+        activity.updateView(getString(R.string.seccion1));
+}
 }

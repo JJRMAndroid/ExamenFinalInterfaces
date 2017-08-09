@@ -17,16 +17,17 @@
     <string name="with_tabs">Con pestañas</string>
     <string name="content_with_tabs">Contenido con pestaña</string>
 
-    <string name="uno">Uno</string>
-    <string name="dos">Dos</string>
-    <string name="tres">Tres</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="googleplus">Google Plus</string>
+    <string name="twiter">Twiter</string>
 
     <string name="open_drawer">Open navigation drawer</string>
     <string name="close_drawer">Close navigation drawer</string>
 
     <string-array name="tabs">
-        <item>@string/uno</item>
-        <item>@string/dos</item>
-        <item>@string/tres</item>
+        <item>@string/facebook</item>
+        <item>@string/instagram</item>
+        <item>@string/googleplus</item>
     </string-array>
 </resources>

@@ -26,9 +26,4 @@ public class BaseViewPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return tabs.length;
     }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return tabs[position];
-    }
 }
