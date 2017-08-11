@@ -1,6 +1,7 @@
 package com.nextu.jj.examenfinalinterfaces.adaptador;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -10,20 +11,21 @@ import com.nextu.jj.examenfinalinterfaces.R;
 
 public class BaseViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String[] tabs;
+    private TypedArray img;
 
-    public BaseViewPagerAdapter(FragmentManager manager, Context context) {
+    public BaseViewPagerAdapter(FragmentManager manager, Context context, int redSocial) {
         super(manager);
-        tabs = context.getResources().getStringArray(R.array.tabs);
+        img = context.getResources().obtainTypedArray(redSocial);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return BasicFragment.getInstance(tabs[position]);
+    return BasicFragment.getInstance(img.getResourceId(position, 0));
     }
 
     @Override
     public int getCount() {
-        return tabs.length;
+       return img.length();
     }
+
 }

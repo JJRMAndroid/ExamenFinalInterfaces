@@ -15,6 +15,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
@@ -28,6 +29,12 @@ public class MainActivity extends AppCompatActivity
     TabLayout tabLayout;
     Toolbar toolbar;
 
+    int colorPrimary ;
+    int colorPrimaryDark;
+    int idItem;
+
+    String titulo = "Inicio";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,66 +43,97 @@ public class MainActivity extends AppCompatActivity
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, new AppBarWithTabsFragment())
+                .add(R.id.container, new Inicio())
                 .commit();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null)
             navigationView.setNavigationItemSelectedListener(this);
+
+        Log.i("onCreate","onCreate");
     }
 
     public void updateView(String title) {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (toolbar != null)
+      toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null){
             toolbar.setTitle(title);
+        }
+
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.open_drawer, R.string.close_drawer);
+                R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(toogle);
+
+        //Cambio de color toolbar
+        toolbar.setSubtitle(titulo);
+        toolbar.setBackgroundColor(colorPrimary);
+        //Cambio de imagen toolbar
+        cambiaImagen(idItem);
+
         toogle.syncState();
+
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
+        if (tabLayout != null) {
+            //Cambio de color tabLayout
+            tabLayout.setBackgroundColor(colorPrimary);
+        }
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int idItem = item.getItemId();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        idItem = item.getItemId();
 
-        int colorPrimary = 0;
-        int colorPrimaryDark = 0;
+        Fragment fragment = null;
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         switch (idItem) {
             case R.id.nav_home:
                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimary);
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDark);
-                toolbar.setSubtitle(R.string.seccion1);
+                titulo = "Inicio";
+                fragment = new Inicio();
                 break;
+
             case R.id.nav_facebook:
-                toolbar.setSubtitle(R.string.seccion2);
+                titulo = "Facebook";
                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryFacebook);
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkFacebook);
+                fragment = new RedesSociales();
                 break;
             case R.id.nav_instagram:
-                toolbar.setSubtitle(R.string.seccion3);
+                titulo = "Instagram";
                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryInstagram);
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkInstagram);
+                fragment = new RedesSociales();
                 break;
             case R.id.nav_google_plus:
-                toolbar.setSubtitle(R.string.seccion4);
+                titulo = "Google Plus";
                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryGooglePlus);
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkGooglePlus);
+                fragment = new RedesSociales();
                 break;
             case R.id.nav_twiter:
-                toolbar.setSubtitle(R.string.seccion5);
+                titulo = "Twiter";
                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryTwiter);
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkTwiter);
+                fragment = new RedesSociales();
                 break;
         }
-        cambiaColor(colorPrimary, colorPrimaryDark);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
 
         drawerLayout.closeDrawer(GravityCompat.START);
 
-        cambiaImagen(idItem);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        if (navigationView != null)
+        {
+            cambiaColor(colorPrimary, colorPrimaryDark);
+        }
 
         return true;
     }
@@ -115,36 +153,41 @@ public class MainActivity extends AppCompatActivity
             getWindow().setStatusBarColor(colorPrimaryDark);
         }
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setBackgroundColor(colorPrimary);
     }
 
-    private void cambiaImagen(int redSocial){
+    public void cambiaImagen(int redSocial){
 
         int tab1 = 0;
         int tab2 = 0;
         int tab3 = 0;
+        int imagen = 0;
+
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
         switch(redSocial){
             case R.id.nav_facebook:
                 tab1 = R.drawable.noticias;
                 tab2 = R.drawable.group;
                 tab3 = R.drawable.earth;
+                imagen = R.array.facebook;
             break;
             case R.id.nav_instagram:
                 tab1 = R.drawable.search;
                 tab2 = R.drawable.camara;
                 tab3 = R.drawable.like;
+                imagen = R.array.instagram;
                 break;
             case R.id.nav_google_plus:
                 tab1 = R.drawable.grid;
                 tab2 = R.drawable.grupo_g;
                 tab3 = R.drawable.campana;
+                imagen = R.array.google_plus;
                 break;
             case R.id.nav_twiter:
                 tab1 = R.drawable.campana;
                 tab2 = R.drawable.mensaje;
                 tab3 = R.drawable.search;
+                imagen = R.array.twiter;
                 break;
         }
 
@@ -153,7 +196,7 @@ public class MainActivity extends AppCompatActivity
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         if (viewPager != null)
-            viewPager.setAdapter(new BaseViewPagerAdapter(getSupportFragmentManager(), getApplicationContext()));
+            viewPager.setAdapter(new BaseViewPagerAdapter(getSupportFragmentManager(), getApplicationContext(), imagen));
 
         if (tabLayout != null) {
             tabLayout.setupWithViewPager(viewPager);
