@@ -19,4 +19,7 @@
     <color name="colorPrimaryGooglePlus">#ef5350</color>
     <color name="colorPrimaryDarkGooglePlus">#c62828</color>
     <color name="colorAccentGooglePlus">#ea80fc</color>
+
+    <color name="colorGris">#B8B8B8</color>
+
 </resources>

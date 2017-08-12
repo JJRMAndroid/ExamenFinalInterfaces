@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity
         int tab2 = 0;
         int tab3 = 0;
         int imagen = 0;
+        int titulo = 0;
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
@@ -170,24 +171,28 @@ public class MainActivity extends AppCompatActivity
                 tab2 = R.drawable.group;
                 tab3 = R.drawable.earth;
                 imagen = R.array.facebook;
-            break;
+                titulo = R.array.facebook_titulo;
+                break;
             case R.id.nav_instagram:
                 tab1 = R.drawable.search;
                 tab2 = R.drawable.camara;
                 tab3 = R.drawable.like;
                 imagen = R.array.instagram;
+                titulo = R.array.instagram_titulo;
                 break;
             case R.id.nav_google_plus:
                 tab1 = R.drawable.grid;
                 tab2 = R.drawable.grupo_g;
                 tab3 = R.drawable.campana;
                 imagen = R.array.google_plus;
+                titulo = R.array.google_plus_titulo;
                 break;
             case R.id.nav_twiter:
                 tab1 = R.drawable.campana;
                 tab2 = R.drawable.mensaje;
                 tab3 = R.drawable.search;
                 imagen = R.array.twiter;
+                titulo = R.array.twiter_titulo;
                 break;
         }
 
@@ -196,7 +201,7 @@ public class MainActivity extends AppCompatActivity
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         if (viewPager != null)
-            viewPager.setAdapter(new BaseViewPagerAdapter(getSupportFragmentManager(), getApplicationContext(), imagen));
+            viewPager.setAdapter(new BaseViewPagerAdapter(getSupportFragmentManager(), getApplicationContext(), imagen, titulo));
 
         if (tabLayout != null) {
             tabLayout.setupWithViewPager(viewPager);

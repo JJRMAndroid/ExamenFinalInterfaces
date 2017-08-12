@@ -11,13 +11,17 @@
         android:id="@+id/image_tab"
         android:contentDescription="@string/app_name"
         android:src="@drawable/share2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="268dp" />
 
     <TextView
         android:id="@+id/text_tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Red Social"
+        android:textSize="20dp"
+        android:textColor="@color/colorGris"
+        android:textStyle="bold"
         android:gravity="center" />
 
 </LinearLayout>

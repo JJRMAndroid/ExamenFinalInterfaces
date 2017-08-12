@@ -13,4 +13,43 @@
     <string name="seccion5">Twiter</string>
     <string name="redes_sociales">Mis Redes Sociales</string>
 
+    <string name="noticias">Noticias</string>
+    <string name="grupos">Grupos</string>
+    <string name="web">Web</string>
+
+    <string name="buscar">Buscar</string>
+    <string name="fotos">Fotos</string>
+    <string name="me_gusta">Me gusta</string>
+
+    <string name="colecciones">Colecciones</string>
+    <string name="comunidades">Comunidades</string>
+    <string name="notificaciones">Notifiaciones</string>
+
+    <string name="chat">Chat</string>
+
+
+    <string-array name="facebook_titulo">
+        <item>@string/noticias</item>
+        <item>@string/grupos</item>
+        <item>@string/web</item>
+    </string-array>
+
+    <string-array name="instagram_titulo">
+        <item>@string/buscar</item>
+        <item>@string/fotos</item>
+        <item>@string/me_gusta</item>
+    </string-array>
+
+    <string-array name="google_plus_titulo">
+        <item>@string/colecciones</item>
+        <item>@string/comunidades</item>
+        <item>@string/notificaciones</item>
+    </string-array>
+
+    <string-array name="twiter_titulo">
+        <item>@string/notificaciones</item>
+        <item>@string/chat</item>
+        <item>@string/buscar</item>
+    </string-array>
+
 </resources>
