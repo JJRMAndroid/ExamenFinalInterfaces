@@ -6,12 +6,7 @@
         <item>@drawable/earth96</item>
     </integer-array>
 
-    <integer-array name="instagram">
-        <item>@drawable/search96</item>
-        <item>@drawable/camera96</item>
-        <item>@drawable/like96</item>
-    </integer-array>
-
+    <integer-array name="instagram"> <item>@drawable/search96</item> <item>@drawable/camera96</item> <item>@drawable/like96</item> </integer-array>
     <integer-array name="google_plus">
         <item>@drawable/grid96</item>
         <item>@drawable/groups_g96</item>

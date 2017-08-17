@@ -15,18 +15,21 @@
 
     <string name="noticias">Noticias</string>
     <string name="grupos">Grupos</string>
-    <string name="web">Web</string>
+    <string name="web">Publicar</string>
 
     <string name="buscar">Buscar</string>
-    <string name="fotos">Fotos</string>
-    <string name="me_gusta">Me gusta</string>
+    <string name="fotos">Galeria</string>
+    <string name="me_gusta">Notificaciones</string>
 
     <string name="colecciones">Colecciones</string>
     <string name="comunidades">Comunidades</string>
-    <string name="notificaciones">Notifiaciones</string>
+    <string name="notificaciones">Notificaciones</string>
 
     <string name="chat">Chat</string>
 
+    <string name="version_web">Versión Web</string>
+    <string name="compartir">Compartir</string>
+    <string name="configuracion">Configuración</string>
 
     <string-array name="facebook_titulo">
         <item>@string/noticias</item>

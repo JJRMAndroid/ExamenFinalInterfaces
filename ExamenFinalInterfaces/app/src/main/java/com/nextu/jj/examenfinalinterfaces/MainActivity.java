@@ -1,8 +1,11 @@
 package com.nextu.jj.examenfinalinterfaces;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,11 +15,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.nextu.jj.examenfinalinterfaces.adaptador.BaseViewPagerAdapter;
@@ -50,7 +57,6 @@ public class MainActivity extends AppCompatActivity
         if (navigationView != null)
             navigationView.setNavigationItemSelectedListener(this);
 
-        Log.i("onCreate","onCreate");
     }
 
     public void updateView(String title) {
@@ -120,6 +126,8 @@ public class MainActivity extends AppCompatActivity
                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkTwiter);
                 fragment = new RedesSociales();
                 break;
+            default:
+                colorPrimary = ContextCompat.getColor(this, R.color.colorAccent);
         }
 
         getSupportFragmentManager().beginTransaction()
@@ -232,5 +240,71 @@ public class MainActivity extends AppCompatActivity
             drawerLayout.closeDrawer(GravityCompat.START);
         else
             super.onBackPressed();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        SubMenu version_web = menu.addSubMenu(0,1,1,R.string.version_web);
+        SubMenu compartir = menu.addSubMenu(1,2,2,R.string.compartir);
+        SubMenu configuracion = menu.addSubMenu(2,3,3,R.string.configuracion);
+
+        version_web.add(0,4,1,R.string.seccion2).setIcon(R.drawable.facebook2);
+        version_web.add(0,5,2,R.string.seccion3).setIcon(R.drawable.instagra2);
+        version_web.add(0,6,3,R.string.seccion4).setIcon(R.drawable.google_plus2);
+        version_web.add(0,7,4,R.string.seccion5).setIcon(R.drawable.twitter2);
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+         onClickNavegar(id);
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickNavegar(int idSubmenu){
+        String url = "";
+        Log.i("idSubmenu",""+idSubmenu);
+         switch(idSubmenu){
+             case 2:
+                 AlertDialog dialogo = Dialogo.listaCheck(this);
+                 dialogo.show();
+                 break;
+             case 4:
+                 url = "http://facebook.com";
+                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryFacebook);
+                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkFacebook);
+                 break;
+             case 5:
+                 url = "https://instagram.com";
+                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryInstagram);
+                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkInstagram);
+                 break;
+             case 6:
+                 url = "https://plus.google.com";
+                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryGooglePlus);
+                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkGooglePlus);
+                 break;
+             case 7:
+                 url = "https://twiter.com";
+                 colorPrimary = ContextCompat.getColor(this, R.color.colorPrimaryTwiter);
+                 colorPrimaryDark = ContextCompat.getColor(this, R.color.colorPrimaryDarkTwiter);
+                 break;
+         }
+
+         if(idSubmenu>3){
+             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+             builder.setToolbarColor(colorPrimary);
+             builder.setStartAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+             builder.setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+             CustomTabsIntent customTabsIntent = builder.build();
+             customTabsIntent.launchUrl(this, Uri.parse(url));
+         }
     }
 }
